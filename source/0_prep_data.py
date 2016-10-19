@@ -6,8 +6,6 @@ df = pd.read_csv('data/kaggle/train.csv', header=0)
 cols = ['Name', 'Ticket', 'Cabin']
 df = df.drop(cols, axis=1)
 
-# df.info()
-
 # add one hot encoding columns for non numeric category data
 one_hot_cols = []
 cols = ['Pclass', 'Sex', 'Embarked']
@@ -29,4 +27,4 @@ df['Age'] = df['Age'].interpolate()
 
 # save intermediary data
 
-df.to_csv('data/new_train.csv')
+df.to_csv('data/new_train.csv', index=False)
