@@ -3,8 +3,10 @@ import numpy as np
 from sklearn.cross_validation import train_test_split
 from sklearn.metrics import accuracy_score
 # from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestClassifier
+# from sklearn.ensemble import RandomForestClassifier
 # from sklearn.ensemble import GradientBoostingClassifier
+# from sklearn.ensemble import AdaBoostClassifier
+from sklearn.linear_model import LogisticRegression
 
 df = pd.read_csv('data/new_train.csv', header=0)
 
@@ -28,9 +30,9 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_
 
 # train model with Random Forrest
 #
-clf = RandomForestClassifier(n_estimators=100)
-clf.fit(x_train, y_train)
-score = clf.score(x_test, y_test)
+# clf = RandomForestClassifier(n_estimators=100)
+# clf.fit(x_train, y_train)
+# score = clf.score(x_test, y_test)
 # result: 0.837988826816
 
 # train model with Gradient Boost
@@ -39,4 +41,16 @@ score = clf.score(x_test, y_test)
 # clf.fit(x_train, y_train)
 # score = clf.score(x_test, y_test)
 # result: 0.826815642458
+
+# train AdaBoost Classifier
+# clf = AdaBoostClassifier(n_estimators=150)
+# clf.fit(x_train, y_train)
+# score = clf.score(x_test, y_test)
+
+# train logistic regression
+
+clf = LogisticRegression()
+clf.fit(x_train, y_train)
+score = clf.score(x_test, y_test)
+
 print(score)

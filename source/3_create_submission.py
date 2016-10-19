@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
 
 df_train = pd.read_csv('data/new_train.csv', header=0)
 
@@ -9,7 +9,7 @@ y = df_train['Survived'].values
 
 x = np.delete(x, 1, axis=1)
 
-clf = RandomForestClassifier(n_estimators=100)
+clf = LogisticRegression()
 clf.fit(x, y)
 
 # generate kaggle submission
